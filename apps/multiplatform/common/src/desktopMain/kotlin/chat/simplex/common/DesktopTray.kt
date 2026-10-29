@@ -60,11 +60,7 @@ fun ApplicationScope.SimplexTray() {
       }
     }
   }
-  val iconRes = if (unread > 0) {
-    if (isInDarkTheme()) MR.images.ic_simplex_tray_dot_light else MR.images.ic_simplex_tray_dot
-  } else {
-    if (isInDarkTheme()) MR.images.ic_simplex_tray_light else MR.images.ic_simplex
-  }
+  val iconRes = if (isInDarkTheme()) MR.images.ic_simplex_light else MR.images.ic_simplex_dark
   val tooltip =
     if (unread > 0) stringResource(MR.strings.tray_tooltip_unread, unread)
     else stringResource(MR.strings.tray_tooltip)

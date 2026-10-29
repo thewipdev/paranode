@@ -143,7 +143,7 @@ fun MainScreen() {
       onboarding == OnboardingStage.Step1_SimpleXInfo && chatModel.migrationState.value != null -> {
         // In migration process. Nothing should interrupt it, that's why it's the first branch in when()
         if (appPlatform.isDesktop) DesktopOnboarding(onboarding, chatModel)
-        else SimpleXInfo(chatModel, onboarding = true)
+        else ParanodeInfo(chatModel, onboarding = true)
       }
       chatModel.dbMigrationInProgress.value -> DefaultProgressView(stringResource(MR.strings.database_migration_in_progress))
       chatModel.chatDbStatus.value == null && showInitializationView -> DefaultProgressView(stringResource(MR.strings.opening_database))
@@ -187,7 +187,7 @@ fun MainScreen() {
           ) { state ->
             when (state) {
               OnboardingStage.OnboardingComplete -> {}
-              OnboardingStage.Step1_SimpleXInfo -> SimpleXInfo(chatModel, onboarding = true)
+              OnboardingStage.Step1_SimpleXInfo -> ParanodeInfo(chatModel, onboarding = true)
               OnboardingStage.Step2_CreateProfile -> CreateFirstProfile(chatModel) {}
               OnboardingStage.LinkAMobile -> LinkAMobile()
               OnboardingStage.Step2_5_SetupDatabasePassphrase -> SetupDatabasePassphrase(chatModel)
@@ -276,7 +276,7 @@ private fun DesktopOnboarding(onboarding: OnboardingStage, chatModel: ChatModel)
   } else {
     DesktopOnboardingShell(onboarding) {
       when (onboarding) {
-        OnboardingStage.Step1_SimpleXInfo -> SimpleXInfo(chatModel, onboarding = true)
+        OnboardingStage.Step1_SimpleXInfo -> ParanodeInfo(chatModel, onboarding = true)
         OnboardingStage.Step2_CreateProfile -> CreateFirstProfile(chatModel) {}
         OnboardingStage.Step2_5_SetupDatabasePassphrase -> SetupDatabasePassphrase(chatModel)
         OnboardingStage.Step3_ChooseServerOperators,

@@ -18,7 +18,7 @@ object AppLock {
   /**
    * We don't want these values to be bound to Activity lifecycle since activities are changed often, for example, when a user
    * clicks on new message in notification. In this case savedInstanceState will be null (this prevents restoring the values)
-   * See [SimplexService.onTaskRemoved] for another part of the logic which nullifies the values when app closed by the user
+   * See [ParanodeService.onTaskRemoved] for another part of the logic which nullifies the values when app closed by the user
    * */
   val userAuthorized = mutableStateOf<Boolean?>(null)
   val enteredBackground = mutableStateOf<Long?>(null)

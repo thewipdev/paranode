@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="chat.simplex.app">
+    package="com.paranode.chat">
 
   <uses-feature android:name="android.hardware.camera" />
 
@@ -36,15 +36,15 @@
   </queries>
 
   <application
-      android:name="SimplexApp"
+      android:name="ParanodeApp"
       android:allowBackup="false"
       android:fullBackupOnly="false"
-      android:icon="@mipmap/icon"
+      android:icon="@mipmap/ic_launcher"
       android:label="${app_name}"
       android:largeHeap="true"
       android:extractNativeLibs="${extract_native_libs}"
       android:supportsRtl="true"
-      android:theme="@style/Theme.SimpleX">
+      android:theme="@style/Theme.Paranode">
     <!--      android:localeConfig="@xml/locales_config"-->
 
     <!-- Main activity -->
@@ -56,7 +56,7 @@
         android:label="${app_name}"
         android:windowSoftInputMode="adjustResize"
         android:configChanges="uiMode"
-        android:theme="@style/Theme.SimpleX">
+        android:theme="@style/Theme.Paranode">
       <intent-filter>
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
@@ -123,7 +123,7 @@
     <activity-alias
         android:name=".MainActivity_default"
         android:exported="true"
-        android:icon="@mipmap/icon"
+        android:icon="@mipmap/ic_launcher"
         android:enabled="true"
         android:targetActivity=".MainActivity">
       <intent-filter>
@@ -135,7 +135,7 @@
     <activity-alias
         android:name=".MainActivity_dark_blue"
         android:exported="true"
-        android:icon="@mipmap/icon_dark_blue"
+        android:icon="@mipmap/ic_launcher"
         android:enabled="false"
         android:targetActivity=".MainActivity">
       <intent-filter>
@@ -168,16 +168,16 @@
         android:enabled="true"
         android:exported="false" />
 
-    <!-- SimplexService foreground service -->
+    <!-- Paranode foreground service -->
     <service
-        android:name=".SimplexService"
+        android:name=".ParanodeService"
         android:enabled="true"
         android:exported="false"
         android:stopWithTask="false"
         android:foregroundServiceType="remoteMessaging"
     />
 
-    <!-- SimplexService restart on reboot -->
+    <!-- Paranode service restart on reboot -->
 
     <service
         android:name=".CallService"
@@ -193,7 +193,7 @@
         android:exported="false" />
 
     <receiver
-        android:name=".SimplexService$StartReceiver"
+        android:name=".ParanodeService$StartReceiver"
         android:enabled="true"
         android:exported="true">
       <intent-filter>
@@ -201,15 +201,15 @@
       </intent-filter>
     </receiver>
 
-    <!-- SimplexService restart on destruction -->
+    <!-- Paranode service restart on destruction -->
     <receiver
-        android:name=".SimplexService$AutoRestartReceiver"
+        android:name=".ParanodeService$AutoRestartReceiver"
         android:enabled="true"
         android:exported="false" />
 
-    <!-- SimplexService restart on app update -->
+    <!-- Paranode service restart on app update -->
     <receiver
-        android:name=".SimplexService$AppUpdateReceiver"
+        android:name=".ParanodeService$AppUpdateReceiver"
         android:enabled="true"
         android:exported="false">
       <intent-filter>

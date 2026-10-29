@@ -7,7 +7,7 @@ actual fun getWakeLock(timeout: Long): (() -> Unit) {
   val context = AppContextProvider.getApplicationContext()
     ?: throw IllegalStateException("Application context not initialized")
   var wakeLock: PowerManager.WakeLock? = (context.applicationContext.getSystemService(Context.POWER_SERVICE) as PowerManager).run {
-    newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "SimplexService::lock").apply {
+    newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ParanodeService::lock").apply {
       acquire(timeout)
     }
   }

@@ -49,6 +49,6 @@ interface PlatformInterface {
  * to identify it's use-case. Easy to understand that it is only needed on one specific platform. Functions without prefixes are used on
  * more than one platform.
  *
- * See [SimplexApp] and [AppCommon.desktop] for re-assigning of this var
+ * See [ParanodeApp] and [AppCommon.desktop] for re-assigning of this var
  * */
 var platform: PlatformInterface = object : PlatformInterface {}

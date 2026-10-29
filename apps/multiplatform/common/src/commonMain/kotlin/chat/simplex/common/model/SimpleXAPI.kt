@@ -224,7 +224,8 @@ class AppPreferences {
   /** after importing new database, this flag will be set and unset only after importing app settings in [initChatController] */
   val shouldImportAppSettings = mkBoolPreference(SHARED_PREFS_SHOULD_IMPORT_APP_SETTINGS, false)
 
-  val currentTheme = mkStrPreference(SHARED_PREFS_CURRENT_THEME, DefaultTheme.SYSTEM_THEME_NAME)
+  // Paranode defaults to the dark palette on first launch; existing user preferences are retained.
+  val currentTheme = mkStrPreference(SHARED_PREFS_CURRENT_THEME, DefaultTheme.DARK.themeName)
   val systemDarkTheme = mkStrPreference(SHARED_PREFS_SYSTEM_DARK_THEME, DefaultTheme.DARK.themeName)
   val currentThemeIds = mkMapPreference(SHARED_PREFS_CURRENT_THEME_IDs, mapOf(), encode = {
     json.encodeToString(MapSerializer(String.serializer(), String.serializer()), it)
@@ -382,8 +383,8 @@ class AppPreferences {
     )
 
   companion object {
-    const val SHARED_PREFS_ID = "chat.simplex.app.SIMPLEX_APP_PREFS"
-    internal const val SHARED_PREFS_THEMES_ID = "chat.simplex.app.THEMES"
+    const val SHARED_PREFS_ID = "com.paranode.chat.SIMPLEX_APP_PREFS"
+    internal const val SHARED_PREFS_THEMES_ID = "com.paranode.chat.THEMES"
     private const val SHARED_PREFS_AUTO_RESTART_WORKER_VERSION = "AutoRestartWorkerVersion"
     private const val SHARED_PREFS_RUN_SERVICE_IN_BACKGROUND = "RunServiceInBackground"
     private const val SHARED_PREFS_NOTIFICATIONS_MODE = "NotificationsMode"
@@ -4468,8 +4469,8 @@ data class ServerOperatorInfo(
 val operatorsInfo: Map<OperatorTag, ServerOperatorInfo> = mapOf(
   OperatorTag.SimpleX to ServerOperatorInfo(
     description = listOf(
-      "SimpleX Chat is the first communication network that has no user profile IDs of any kind, not even random numbers or keys that identify the users.",
-      "SimpleX Chat Ltd develops the communication software for SimpleX network."
+      "Paranode is the first communication network that has no user profile IDs of any kind, not even random numbers or keys that identify the users.",
+      "Paranode Ltd develops the communication software for SimpleX network."
     ),
     website = "https://simplex.chat",
     logo = MR.images.decentralized,
@@ -4579,8 +4580,8 @@ data class ServerOperator(
     val sampleData1 = ServerOperator(
       operatorId = 1,
       operatorTag = OperatorTag.SimpleX,
-      tradeName = "SimpleX Chat",
-      legalName = "SimpleX Chat Ltd",
+      tradeName = "Paranode",
+      legalName = "Paranode Ltd",
       serverDomains = listOf("simplex.im"),
       conditionsAcceptance = ConditionsAcceptance.Accepted(acceptedAt = null, autoAccepted = false),
       enabled = true,

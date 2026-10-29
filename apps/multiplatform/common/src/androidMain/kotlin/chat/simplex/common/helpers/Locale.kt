@@ -9,7 +9,7 @@ import java.util.*
 
 fun Activity.saveAppLocale(pref: SharedPreference<String?>, languageCode: String? = null) {
   //  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-  //    val localeManager = SimplexApp.context.getSystemService(LocaleManager::class.java)
+  //    val localeManager = ParanodeApp.context.getSystemService(LocaleManager::class.java)
   //    localeManager.applicationLocales = LocaleList(Locale.forLanguageTag(languageCode ?: return))
   //  } else {
   pref.set(languageCode)

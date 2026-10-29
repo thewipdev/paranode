@@ -1180,7 +1180,7 @@ object AppearanceScope {
     )
   }
   //private fun openSystemLangPicker(activity: Activity) {
-  //  activity.startActivity(Intent(Settings.ACTION_APP_LOCALE_SETTINGS, Uri.parse("package:" + SimplexApp.context.packageName)))
+  //  activity.startActivity(Intent(Settings.ACTION_APP_LOCALE_SETTINGS, Uri.parse("package:" + ParanodeApp.context.packageName)))
   //}
 }
 

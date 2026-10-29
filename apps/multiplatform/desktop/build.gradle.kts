@@ -40,7 +40,7 @@ compose {
       }
       mainClass = "chat.simplex.desktop.MainKt"
       nativeDistributions {
-        copyright = "(c) 2020-2026 SimpleX Chat"
+        copyright = "(c) 2020-2026 Paranode"
         // For debugging via VisualVM
         if (debugJava) {
           modules("jdk.zipfs", "jdk.unsupported", "jdk.management.agent")
@@ -68,7 +68,7 @@ compose {
           appCategory = "Messenger"
         }
         windows {
-          packageName = "SimpleX"
+          packageName = "Paranode"
           iconFile.set(project.file("src/jvmMain/resources/distribute/simplex.ico"))
           console = false
           perUserInstall = false
@@ -77,14 +77,14 @@ compose {
           upgradeUuid = "CC9EFBC8-AFFF-40D8-BB69-FCD7CE99EFB9"
         }
         macOS {
-          packageName = "SimpleX"
+          packageName = "Paranode"
           iconFile.set(project.file("src/jvmMain/resources/distribute/simplex.icns"))
           appCategory = "public.app-category.social-networking"
-          bundleID = "chat.simplex.app"
+          bundleID = "com.paranode.chat"
           infoPlist {
             extraKeysRawXml = """
               <key>NSMicrophoneUsageDescription</key>
-              <string>SimpleX needs microphone access to record voice messages</string>
+              <string>Paranode needs microphone access to record voice messages</string>
             """
           }
           val identity = rootProject.extra["desktop.mac.signing.identity"] as String?
@@ -106,7 +106,7 @@ compose {
           }
         }
         if (os.contains("mac") || os.contains("win")) {
-          packageName = "SimpleX"
+          packageName = "Paranode"
         } else {
           packageName = "simplex"
         }
